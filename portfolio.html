@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEHOLD, masedef the codemaster i gues</title>
+    <title>masedef</title>
     <style>
         * {
             margin: 0;
@@ -247,13 +247,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>masedef</h1>
-            <p>programmer i gues</p>
+            <h1>behold the masedef</h1>
+            <p>programmer and muzisian.. i gues</p>
         </div>
 
         <div class="card">
             <h2>About Me</h2>
-            <p>hi im masedef and i cod stufff... still learnin but gut enouf</p>
+            <p>hi im masedef and i cod stufff... still learnin but gut enouf <br> im a muzisian by de way, play leed guitar</p>
         </div>
 
         <div class="card">
@@ -283,11 +283,30 @@
             </div>
         </div>
 
+        <div class="card">
+            <h2>Music Carrer</h2>
+            <p>i played fore som unpopular bands, <br> i was a leed guitarst back in e dey</p>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Alcohollica</h3>
+                    <p>beter thun megurdef</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Von Halen</h3>
+                    <p>tap tap tap</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Nirvanus</h3>
+                    <p>u dont wana know</p>
+                </div>
+            </div>
+        </div>
+
         <div class="card character-section">
             <div class="character-image">
                 <img src="https://preview.redd.it/daily-character-discussion-kita-ikuyo-v0-alckatsavcia1.png?width=736&format=png&auto=webp&s=3965d7e5b686028b7e5659fc5aa3195fcfbb3628" alt="why the fock r yo evan loking ther">
             </div>
-            <p>kita caus why not</p>
+            <p>kita cause um why not</p>
         </div>
 
         <div class="card contact-section">
@@ -302,10 +321,22 @@
         document.querySelectorAll('.skill-item').forEach(item => {
             item.addEventListener('click', function() {
                 const skill = this.querySelector('h3').textContent;
-                alert(`You've unlocked the secrets of ${skill}! 🎉`);
+                if (skill.includes('🎸') || skill.includes('🥁') || skill.includes('🎤')) {
+                    alert(`${skill} was actualy pretey gud... miss those days 😢`);
+                } else {
+                    alert(`You've unlocked the secrets of ${skill}! 🎉`);
+                }
             });
         });
 
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.background = 'linear-gradient(135deg, #ff6b6b, #ffa726)';
+                setTimeout(() => {
+                    this.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+                }, 200);
+            });
+        });
 
         // Floating animation for character
         const character = document.querySelector('.character-image');
