@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEHOLD, masedef the codemaster i gues</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .skill-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-item p {
+            font-size: 0.9rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .character-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .character-image {
+            width: 750px;
+            height: 750px;
+            border-radius: 20px;
+            border: 5px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+            animation: float 3s ease-in-out infinite;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .character-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .contact-section {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ffa726);
+            border-radius: 5px;
+            animation: fillBar 2s ease forwards;
+        }
+
+        @keyframes fillBar {
+            from { width: 0%; }
+        }
+
+        .cpp-fill { animation-delay: 0.2s; }
+        .java-fill { animation-delay: 0.4s; }
+        .lua-fill { animation-delay: 0.6s; }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>masedef</h1>
+            <p>programmer i gues</p>
+        </div>
+
+        <div class="card">
+            <h2>About Me</h2>
+            <p>hi im masedef and i cod stufff... still learnin but gut enouf</p>
+        </div>
+
+        <div class="card">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>C+++</h3>
+                    <p>like c++ but way beter</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill cpp-fill" style="width: 65%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>JavaSharp</h3>
+                    <p>beter javascreapt</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill java-fill" style="width: 40%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>Luadih</h3>
+                    <p>dont ask</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill lua-fill" style="width: 30%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card character-section">
+            <div class="character-image">
+                <img src="https://preview.redd.it/daily-character-discussion-kita-ikuyo-v0-alckatsavcia1.png?width=736&format=png&auto=webp&s=3965d7e5b686028b7e5659fc5aa3195fcfbb3628" alt="why the fock r yo evan loking ther">
+            </div>
+            <p>kita caus why not</p>
+        </div>
+
+        <div class="card contact-section">
+            <h2>Contact</h2>
+            <p>if u want to hir me or somthing</p>
+            <button class="contact-btn" onclick="alert('Email: uh i forgot it sorrie')">📧 email</button>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive magic
+        document.querySelectorAll('.skill-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const skill = this.querySelector('h3').textContent;
+                alert(`You've unlocked the secrets of ${skill}! 🎉`);
+            });
+        });
+
+
+        // Floating animation for character
+        const character = document.querySelector('.character-image');
+        character.addEventListener('mouseenter', function() {
+            this.style.animationDuration = '0.5s';
+        });
+        
+        character.addEventListener('mouseleave', function() {
+            this.style.animationDuration = '3s';
+        });
+
+        // Add typing effect to header
+        const headerText = document.querySelector('.header h1');
+        const text = headerText.textContent;
+        headerText.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                headerText.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    </script>
+</body>
+</html>
